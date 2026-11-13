@@ -1,0 +1,1833 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Иван Телепнев — Аналитик Данных | Портфолио 2026</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      .pixel-title {
+        font-family: "Unbounded", sans-serif;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        color: #d946ef;
+        text-shadow:
+          3px 3px #701a75,
+          5px 5px #000;
+        font-size: clamp(1.5rem, 3.2vw, 2.75rem);
+        line-height: 1.2;
+      }
+      .pixel-accent {
+        font-family: "Unbounded", sans-serif;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        color: var(--accent-color, #fbbf24);
+        text-shadow:
+          3px 3px var(--accent-shadow, #78350f),
+          5px 5px #000;
+        font-size: clamp(1.5rem, 3.2vw, 2.75rem);
+        line-height: 1.2;
+      }
+      .pixel-subtitle {
+        font-family: "Unbounded", sans-serif;
+        font-weight: 700;
+        color: var(--subtitle-color, #00ffcc);
+        text-shadow: var(--subtitle-shadow, 2px 2px #004444);
+      }
+      .pixel-box {
+        background: var(--box-bg, rgba(10, 20, 40, 0.95));
+        border: 4px solid var(--box-border, #ffcc00);
+        box-shadow: 6px 6px 0px var(--box-shadow, #b80000);
+      }
+      /* Royal Ornate Frame for Photo */
+      .royal-frame {
+        background: var(--box-bg, rgba(10, 20, 40, 0.95));
+        border: 6px solid #fbbf24;
+        box-shadow:
+          0 0 0 3px #000,
+          6px 6px 0px #b80000,
+          inset 0 0 15px rgba(251, 191, 36, 0.3);
+        position: relative;
+      }
+      .royal-frame::before {
+        content: "⚜";
+        position: absolute;
+        top: -12px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #050b18;
+        color: #fbbf24;
+        padding: 0 10px;
+        font-size: 16px;
+        font-weight: bold;
+      }
+      .pixel-btn-start {
+        font-family: "Unbounded", sans-serif;
+        font-weight: 700;
+        background-color: #ffcc00;
+        color: #111;
+        border: 3px solid #fff;
+        box-shadow: 4px 4px 0px #b80000;
+        cursor: pointer;
+        text-transform: uppercase;
+        transition:
+          transform 0.1s,
+          box-shadow 0.1s;
+      }
+      .pixel-btn-start:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: 6px 6px 0px #b80000;
+        background-color: #ffee55;
+      }
+      .pixel-btn-secondary {
+        font-family: "Unbounded", sans-serif;
+        font-weight: 700;
+        background-color: #00ffcc;
+        color: #050b18;
+        border: 3px solid #fff;
+        box-shadow: 4px 4px 0px #005555;
+        cursor: pointer;
+        text-transform: uppercase;
+        transition:
+          transform 0.1s,
+          box-shadow 0.1s;
+      }
+      .pixel-btn-secondary:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: 6px 6px 0px #005555;
+        background-color: #55ffdd;
+      }
+      .pixel-btn-pink {
+        font-family: "Unbounded", sans-serif;
+        font-weight: 700;
+        background-color: #d946ef;
+        color: #ffffff;
+        border: 3px solid #fff;
+        box-shadow: 4px 4px 0px #701a75;
+        cursor: pointer;
+        text-transform: uppercase;
+        transition:
+          transform 0.1s,
+          box-shadow 0.1s;
+      }
+      .pixel-btn-pink:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: 6px 6px 0px #701a75;
+        background-color: #e879f9;
+      }
+      /* Flexbox & Responsive Rules for Achievements Section (Lab #5 Spec) */
+      .achievements-container {
+        max-width: 1280px; /* within 1140px - 1440px requirement */
+        width: 100%;
+        margin: 0 auto;
+      }
+      .achievements-flex {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: stretch;
+        gap: 2rem;
+        flex-wrap: wrap;
+      }
+      .achievement-card {
+        flex: 1 1 320px;
+        max-width: 380px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background: rgba(10, 20, 40, 0.95);
+        transition:
+          transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1),
+          box-shadow 0.2s ease,
+          border-color 0.2s ease;
+      }
+      /* Card 1: Gold Theme */
+      .achievement-card-1 {
+        border: 4px solid #fbbf24;
+        box-shadow: 6px 6px 0px #b80000;
+      }
+      .achievement-card-1:hover {
+        transform: translate(-4px, -6px);
+        border-color: #fbbf24;
+        box-shadow: 10px 10px 0px #78350f;
+      }
+      .achievement-card-1 .achievement-art-box {
+        border-bottom: 4px solid #fbbf24;
+      }
+
+      /* Card 2: Mint/Cyan Theme */
+      .achievement-card-2 {
+        border: 4px solid #00ffcc;
+        box-shadow: 6px 6px 0px #005555;
+      }
+      .achievement-card-2:hover {
+        transform: translate(-4px, -6px);
+        border-color: #00ffcc;
+        box-shadow: 10px 10px 0px #007777;
+      }
+      .achievement-card-2 .achievement-art-box {
+        border-bottom: 4px solid #00ffcc;
+      }
+
+      /* Card 3: Pink/Fuchsia Theme */
+      .achievement-card-3 {
+        border: 4px solid #d946ef;
+        box-shadow: 6px 6px 0px #701a75;
+      }
+      .achievement-card-3:hover {
+        transform: translate(-4px, -6px);
+        border-color: #d946ef;
+        box-shadow: 10px 10px 0px #a21caf;
+      }
+      .achievement-card-3 .achievement-art-box {
+        border-bottom: 4px solid #d946ef;
+      }
+
+      .achievement-art-box {
+        position: relative;
+        overflow: hidden;
+        background: radial-gradient(circle at center, #1e293b 0%, #050b18 100%);
+      }
+      @keyframes floatPixel {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-6px);
+        }
+      }
+      .pixel-float {
+        animation: floatPixel 3s ease-in-out infinite;
+      }
+      @media (max-width: 1024px) {
+        .achievements-flex {
+          flex-direction: column;
+          align-items: center;
+        }
+        .achievement-card {
+          width: 100%;
+          max-width: 500px;
+        }
+      }
+      body.light-theme {
+        --title-color: #0f172a;
+        --title-shadow: #cbd5e1;
+        --accent-color: #d97706;
+        --accent-shadow: #78350f;
+        --subtitle-color: #0d9488;
+        --subtitle-shadow: 1px 1px #064e3b;
+        background-color: #f0f9ff !important;
+        color: #0f172a !important;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-[#050b18] text-white font-['Inter',sans-serif] min-h-screen flex flex-col justify-between overflow-x-hidden transition-colors duration-300 scroll-smooth"
+  >
+    <!-- Background Animated Pixel Canvas -->
+    <canvas
+      id="pixel-bg"
+      class="fixed top-0 left-0 w-full h-full -z-10 pointer-events-none"
+    ></canvas>
+
+    <!-- Top Controls Bar: Sound & Day/Night Theme -->
+    <header
+      class="w-full px-6 py-4 flex justify-end items-center gap-3 sticky top-0 z-40"
+    >
+      <button
+        id="theme-btn"
+        onclick="toggleTheme()"
+        class="text-xs font-bold px-3 py-1.5 bg-slate-900/95 text-amber-300 border-2 border-amber-400 hover:bg-slate-800 transition flex items-center gap-2 font-['Unbounded'] shadow-[2px_2px_0px_#000]"
+      >
+        <i id="theme-icon" class="fas fa-sun"></i>
+        <span id="theme-text">ДЕНЬ</span>
+      </button>
+      <button
+        id="sound-btn"
+        onclick="toggleSound()"
+        class="text-xs font-bold px-3 py-1.5 bg-slate-900/95 text-amber-300 border-2 border-amber-400 hover:bg-slate-800 transition flex items-center gap-2 font-['Unbounded'] shadow-[2px_2px_0px_#000]"
+      >
+        <i id="sound-icon" class="fas fa-volume-up"></i>
+        <span id="sound-text">ЗВУК: ВКЛ</span>
+      </button>
+    </header>
+
+    <!-- MAIN HERO SECTION -->
+    <main
+      class="relative min-h-[calc(100vh-100px)] flex flex-col justify-center items-center px-4 py-6 z-10"
+    >
+      <div
+        class="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
+      >
+        <!-- LEFT COLUMN: Main Heading, Subheading & Actions -->
+        <div
+          class="lg:col-span-6 flex flex-col items-start text-left space-y-6"
+        >
+          <!-- Main Heading (H1) - Single line for analytics and purple name -->
+          <div class="space-y-1 w-full">
+            <h1 class="pixel-title block">ИВАН ТЕЛЕПНЕВ</h1>
+            <h2 class="pixel-accent block whitespace-nowrap">
+              АНАЛИТИК ДАННЫХ
+            </h2>
+          </div>
+
+          <!-- Subtitle (H2) -->
+          <p
+            class="text-xs sm:text-sm lg:text-base pixel-subtitle leading-relaxed"
+          >
+            «ПРЕОБРАЗУЮ ХАОС СЫРЫХ ДАННЫХ В СТРАТЕГИЧЕСКИЕ ИНСАЙТЫ ДЛЯ РОСТА
+            БИЗНЕСА»
+          </p>
+
+          <!-- Action Buttons Container -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 w-full">
+            <button
+              onclick="openContactModal()"
+              class="pixel-btn-start text-[11px] py-4 px-4 flex items-center justify-center gap-2 text-center w-full h-[58px]"
+            >
+              <i class="fas fa-paper-plane"></i>
+              <span>СВЯЗАТЬСЯ СО МНОЙ</span>
+            </button>
+
+            <a
+              href="#achievements"
+              onclick="playBeepSound()"
+              class="pixel-btn-secondary text-[11px] py-4 px-4 flex items-center justify-center gap-2 no-underline text-center w-full h-[58px]"
+            >
+              <i class="fas fa-trophy"></i>
+              <span>МОИ ДОСТИЖЕНИЯ ↓</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN: Photo in Royal Frame -->
+        <div class="lg:col-span-6 w-full flex justify-center">
+          <div class="royal-frame p-3 max-w-sm w-full">
+            <div
+              class="w-full h-72 sm:h-80 overflow-hidden bg-slate-950 border-2 border-amber-400"
+            >
+              <img
+                id="user-photo"
+                src="photo_2026-10-07_16-17-45.jpg"
+                alt="Иван Телепнев — Аналитик данных"
+                class="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- SECTION #2: МОИ ДОСТИЖЕНИЯ (Flexbox Layout & Interactive Data-Constellation Canvas) -->
+    <section
+      id="achievements"
+      class="relative z-10 min-h-screen w-full py-16 px-4 sm:px-8 bg-[#070f22] border-t-4 border-amber-400 text-white flex flex-col justify-center overflow-hidden"
+    >
+      <!-- Interactive Achievements Canvas Background -->
+      <canvas
+        id="achievements-bg"
+        class="absolute inset-0 w-full h-full z-0 pointer-events-none"
+      ></canvas>
+
+      <div class="achievements-container space-y-10 relative z-10">
+        <!-- Section Header -->
+        <div class="text-center space-y-3">
+          <h2
+            class="text-2xl sm:text-4xl font-black text-amber-400 font-['Unbounded'] tracking-tight drop-shadow-[3px_3px_0px_#78350f]"
+          >
+            МОИ ДОСТИЖЕНИЯ
+          </h2>
+          <p
+            class="text-xs sm:text-sm text-[#00ffcc] font-['Unbounded'] max-w-2xl mx-auto"
+          >
+            КЛЮЧЕВЫЕ РЕЗУЛЬТАТЫ, ВНЕДРЕННЫЕ МОДЕЛИ И МЕТРИКИ РОСТА БИЗНЕСА
+          </p>
+        </div>
+
+        <!-- Flexbox Cards Container (Row on Desktop -> Column on Mobile via @media) -->
+        <div class="achievements-flex">
+          <!-- CARD 1: Рост выручки и удержание клиентов (Gold Theme) -->
+          <article class="achievement-card achievement-card-1">
+            <!-- Top Visual Illustration Wrapper -->
+            <div
+              class="achievement-art-box h-48 flex items-center justify-center p-4"
+            >
+              <span
+                class="absolute top-2.5 left-2.5 bg-amber-400 text-slate-950 font-['Unbounded'] text-[9px] font-extrabold px-2 py-0.5 border border-black"
+              >
+                +42% LTV
+              </span>
+              <!-- Custom Pixel Art SVG: Growth Chart & Trophy -->
+              <svg
+                class="w-28 h-28 pixel-float"
+                viewBox="0 0 32 32"
+                shape-rendering="crispEdges"
+              >
+                <!-- Grid lines -->
+                <rect x="4" y="6" width="24" height="1" fill="#334155" />
+                <rect x="4" y="13" width="24" height="1" fill="#334155" />
+                <rect x="4" y="20" width="24" height="1" fill="#334155" />
+                <!-- Bars -->
+                <rect x="5" y="19" width="4" height="7" fill="#0284c7" />
+                <rect x="11" y="15" width="4" height="11" fill="#00ffcc" />
+                <rect x="17" y="10" width="4" height="16" fill="#d946ef" />
+                <rect x="23" y="5" width="4" height="21" fill="#fbbf24" />
+                <!-- Crown / Sparkle on top bar -->
+                <rect x="24" y="2" width="2" height="2" fill="#ffffff" />
+                <rect x="22" y="3" width="1" height="1" fill="#fbbf24" />
+                <rect x="27" y="3" width="1" height="1" fill="#fbbf24" />
+                <!-- Base line -->
+                <rect x="3" y="26" width="26" height="2" fill="#f8fafc" />
+              </svg>
+            </div>
+
+            <!-- Bottom Text & Action Wrapper (Flex Column) -->
+            <div
+              class="p-6 flex-1 flex flex-col justify-between text-center space-y-4"
+            >
+              <div class="space-y-3">
+                <h3
+                  class="text-sm sm:text-base font-extrabold text-amber-400 font-['Unbounded'] leading-snug"
+                >
+                  Рост клиентской базы и LTV на 42%
+                </h3>
+                <p
+                  class="text-xs sm:text-sm text-slate-300 leading-relaxed font-['Inter']"
+                >
+                  Построил систему RFM-сегментации и предиктивного оттока на
+                  Python, что позволило маркетологам точечно возвращать
+                  пользователей и увеличить удержание.
+                </p>
+              </div>
+              <div class="pt-2">
+                <button
+                  onclick="openAchievementModal(0)"
+                  class="pixel-btn-start text-[10px] py-3 px-6 w-full flex items-center justify-center gap-2"
+                >
+                  <span>ПОДРОБНЕЕ</span>
+                  <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- CARD 2: Автоматизация BI-отчетности (Mint Theme) -->
+          <article class="achievement-card achievement-card-2">
+            <!-- Top Visual Illustration Wrapper -->
+            <div
+              class="achievement-art-box h-48 flex items-center justify-center p-4"
+            >
+              <span
+                class="absolute top-2.5 left-2.5 bg-[#00ffcc] text-slate-950 font-['Unbounded'] text-[9px] font-extrabold px-2 py-0.5 border border-black"
+              >
+                -120 Ч/МЕС
+              </span>
+              <!-- Custom Pixel Art SVG: Realtime Dashboard & Lightning -->
+              <svg
+                class="w-28 h-28 pixel-float"
+                viewBox="0 0 32 32"
+                shape-rendering="crispEdges"
+                style="animation-delay: 0.4s"
+              >
+                <!-- Monitor Frame -->
+                <rect x="3" y="4" width="26" height="19" fill="#fbbf24" />
+                <rect x="5" y="6" width="22" height="15" fill="#0f172a" />
+                <!-- Stand -->
+                <rect x="13" y="23" width="6" height="3" fill="#94a3b8" />
+                <rect x="9" y="26" width="14" height="2" fill="#cbd5e1" />
+                <!-- Pie chart inside screen -->
+                <rect x="8" y="9" width="6" height="6" fill="#00ffcc" />
+                <rect x="11" y="9" width="3" height="3" fill="#d946ef" />
+                <!-- Lightning Bolt -->
+                <rect x="20" y="8" width="3" height="4" fill="#fbbf24" />
+                <rect x="18" y="12" width="5" height="2" fill="#fbbf24" />
+                <rect x="19" y="14" width="3" height="4" fill="#fbbf24" />
+                <!-- Data lines -->
+                <rect x="8" y="17" width="8" height="2" fill="#38bdf8" />
+              </svg>
+            </div>
+
+            <!-- Bottom Text & Action Wrapper (Flex Column) -->
+            <div
+              class="p-6 flex-1 flex flex-col justify-between text-center space-y-4"
+            >
+              <div class="space-y-3">
+                <h3
+                  class="text-sm sm:text-base font-extrabold text-amber-400 font-['Unbounded'] leading-snug"
+                >
+                  Единая система сквозной BI-аналитики
+                </h3>
+                <p
+                  class="text-xs sm:text-sm text-slate-300 leading-relaxed font-['Inter']"
+                >
+                  Спроектировал витрины данных в PostgreSQL и автоматизировал 18
+                  дашбордов в Tableau. Сэкономил команде более 120 часов ручной
+                  сборки отчетов ежемесячно.
+                </p>
+              </div>
+              <div class="pt-2">
+                <button
+                  onclick="openAchievementModal(1)"
+                  class="pixel-btn-secondary text-[10px] py-3 px-6 w-full flex items-center justify-center gap-2"
+                >
+                  <span>ПОДРОБНЕЕ</span>
+                  <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- CARD 3: Платформа A/B тестирования (Pink Theme) -->
+          <article class="achievement-card achievement-card-3">
+            <!-- Top Visual Illustration Wrapper -->
+            <div
+              class="achievement-art-box h-48 flex items-center justify-center p-4"
+            >
+              <span
+                class="absolute top-2.5 left-2.5 bg-[#d946ef] text-white font-['Unbounded'] text-[9px] font-extrabold px-2 py-0.5 border border-black"
+              >
+                +18% CR
+              </span>
+              <!-- Custom Pixel Art SVG: ML Brain / Potion Experiment -->
+              <svg
+                class="w-28 h-28 pixel-float"
+                viewBox="0 0 32 32"
+                shape-rendering="crispEdges"
+                style="animation-delay: 0.8s"
+              >
+                <!-- Flask Neck -->
+                <rect x="13" y="4" width="6" height="2" fill="#fbbf24" />
+                <rect x="14" y="6" width="4" height="5" fill="#cbd5e1" />
+                <!-- Flask Body -->
+                <rect x="11" y="11" width="10" height="3" fill="#e2e8f0" />
+                <rect x="8" y="14" width="16" height="10" fill="#e2e8f0" />
+                <rect x="10" y="24" width="12" height="2" fill="#e2e8f0" />
+                <!-- Glowing Potion Liquid -->
+                <rect x="9" y="17" width="14" height="6" fill="#d946ef" />
+                <rect x="11" y="23" width="10" height="2" fill="#a21caf" />
+                <!-- Bubbles -->
+                <rect x="12" y="15" width="2" height="2" fill="#00ffcc" />
+                <rect x="17" y="13" width="2" height="2" fill="#00ffcc" />
+                <rect x="15" y="9" width="2" height="2" fill="#fbbf24" />
+              </svg>
+            </div>
+
+            <!-- Bottom Text & Action Wrapper (Flex Column) -->
+            <div
+              class="p-6 flex-1 flex flex-col justify-between text-center space-y-4"
+            >
+              <div class="space-y-3">
+                <h3
+                  class="text-sm sm:text-base font-extrabold text-amber-400 font-['Unbounded'] leading-snug"
+                >
+                  Платформа A/B-тестов и рост конверсии
+                </h3>
+                <p
+                  class="text-xs sm:text-sm text-slate-300 leading-relaxed font-['Inter']"
+                >
+                  Внедрил статистический калькулятор с CUPED-ускорением
+                  экспериментов. Провел 35+ продуктовых тестов, повысив
+                  конверсию воронки продаж на 18%.
+                </p>
+              </div>
+              <div class="pt-2">
+                <button
+                  onclick="openAchievementModal(2)"
+                  class="pixel-btn-pink text-[10px] py-3 px-6 w-full flex items-center justify-center gap-2"
+                >
+                  <span>ПОДРОБНЕЕ</span>
+                  <i class="fas fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION #3: СТЕК ТЕХНОЛОГИЙ (Interactive Code Matrix & Data Streams Canvas - Compact Height) -->
+    <section
+      id="explore-next"
+      class="relative z-10 py-16 px-4 sm:px-8 bg-[#030712] border-t-4 border-amber-400 text-white flex flex-col justify-center overflow-hidden"
+    >
+      <!-- Interactive Tech Stack Canvas Background -->
+      <canvas
+        id="stack-bg"
+        class="absolute inset-0 w-full h-full z-0 pointer-events-none"
+      ></canvas>
+
+      <div
+        class="max-w-6xl mx-auto space-y-10 text-center relative z-10 w-full"
+      >
+        <h3
+          class="text-2xl sm:text-4xl font-black text-amber-400 font-['Unbounded'] tracking-tight drop-shadow-[3px_3px_0px_#78350f]"
+        >
+          СТЕК ТЕХНОЛОГИЙ & НАВЫКИ
+        </h3>
+
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-xs font-bold font-['Unbounded'] max-w-5xl mx-auto"
+        >
+          <div
+            class="pixel-box p-6 text-center hover:scale-105 transition cursor-pointer flex flex-col items-center justify-center"
+            onmouseenter="playBeepSound(520, 'square', 0.05)"
+          >
+            <i class="fab fa-python text-4xl text-amber-400 mb-3 block"></i>
+            <span class="text-xs">PYTHON / PANDAS</span>
+          </div>
+          <div
+            class="pixel-box p-6 text-center hover:scale-105 transition cursor-pointer flex flex-col items-center justify-center"
+            onmouseenter="playBeepSound(580, 'square', 0.05)"
+          >
+            <i class="fas fa-database text-4xl text-sky-400 mb-3 block"></i>
+            <span class="text-xs">SQL / POSTGRES</span>
+          </div>
+          <div
+            class="pixel-box p-6 text-center hover:scale-105 transition cursor-pointer flex flex-col items-center justify-center"
+            onmouseenter="playBeepSound(640, 'square', 0.05)"
+          >
+            <i
+              class="fas fa-chart-pie text-4xl text-emerald-400 mb-3 block"
+            ></i>
+            <span class="text-xs">TABLEAU / BI</span>
+          </div>
+          <div
+            class="pixel-box p-6 text-center hover:scale-105 transition cursor-pointer flex flex-col items-center justify-center"
+            onmouseenter="playBeepSound(720, 'square', 0.05)"
+          >
+            <i class="fas fa-brain text-4xl text-purple-400 mb-3 block"></i>
+            <span class="text-xs">MACHINE LEARNING</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION #4: МИНИ-ИГРА "SQL INVASION: ЗАЩИТА БАЗЫ ДАННЫХ" -->
+    <section
+      id="game-section"
+      class="relative z-10 py-16 px-4 sm:px-8 bg-[#050b18] border-t-4 border-amber-400 text-white flex flex-col items-center justify-center overflow-hidden"
+    >
+      <div class="max-w-4xl w-full mx-auto text-center space-y-6 relative z-10">
+        <div class="space-y-2">
+          <h3
+            class="text-xl sm:text-3xl font-black text-[#00ffcc] font-['Unbounded'] tracking-tight drop-shadow-[3px_3px_0px_#005555]"
+          >
+            🕹️ МИНИ-ИГРА: SQL INVASION
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-300 font-['Unbounded']">
+            УПРАВЛЯЙТЕ СЕРВЕРОМ И УНИЧТОЖАЙТЕ ПАДАЮЩИЕ БАГИ И ОШИБКИ ДАННЫХ!
+          </p>
+        </div>
+
+        <!-- Arcade Cabinet Wrapper -->
+        <div
+          class="pixel-box p-4 bg-slate-950 relative max-w-2xl mx-auto border-4 border-amber-400"
+        >
+          <!-- Game HUD -->
+          <div
+            class="flex justify-between items-center bg-slate-900 border-2 border-slate-700 px-4 py-2 mb-3 text-xs font-['Unbounded']"
+          >
+            <div>
+              ОЧКИ:
+              <span id="game-score" class="text-amber-400 font-bold">0</span>
+            </div>
+            <div>
+              ЖИЗНИ:
+              <span id="game-lives" class="text-[#00ffcc] font-bold"
+                >❤️❤️❤️</span
+              >
+            </div>
+          </div>
+
+          <!-- Canvas Area -->
+          <div
+            class="relative w-full bg-black border-2 border-slate-800 overflow-hidden"
+            style="height: 320px"
+          >
+            <canvas id="game-canvas" class="w-full h-full block"></canvas>
+
+            <!-- Start Overlay -->
+            <div
+              id="game-overlay"
+              class="absolute inset-0 bg-slate-950/90 flex flex-col items-center justify-center p-6 space-y-4"
+            >
+              <div
+                class="text-amber-400 text-sm sm:text-base font-['Unbounded'] font-bold text-center"
+              >
+                ЗАЩИТИТЕ МЕТРИКИ БИЗНЕСА ОТ БАГОВ!
+              </div>
+              <p class="text-xs text-slate-300 font-sans text-center max-w-xs">
+                Используйте стрелки <span class="text-amber-400">←</span>
+                <span class="text-amber-400">→</span> или кнопки управления,
+                чтобы двигаться. Нажимайте
+                <span class="text-[#00ffcc]">ПРОБЕЛ</span> для стрельбы.
+              </p>
+              <button
+                onclick="startArcadeGame()"
+                class="pixel-btn-start px-8 py-3 text-xs"
+              >
+                ИГРАТЬ СТАРТ
+              </button>
+            </div>
+
+            <!-- Game Over Overlay -->
+            <div
+              id="game-over-overlay"
+              class="absolute inset-0 bg-slate-950/95 flex flex-col items-center justify-center p-6 space-y-4 hidden"
+            >
+              <div
+                class="text-rose-500 text-base sm:text-lg font-['Unbounded'] font-bold"
+              >
+                ИГРА ОКОНЧЕНА
+              </div>
+              <div class="text-xs text-slate-200 font-['Unbounded']">
+                ВАШ СЧЕТ: <span id="final-score" class="text-amber-400">0</span>
+              </div>
+              <button
+                onclick="startArcadeGame()"
+                class="pixel-btn-start px-8 py-3 text-xs"
+              >
+                ИГРАТЬ СНОВА
+              </button>
+            </div>
+          </div>
+
+          <!-- On-Screen Controls for Mobile / Touch -->
+          <div
+            class="grid grid-cols-3 gap-2 mt-3 pt-2 border-t-2 border-slate-800 sm:hidden"
+          >
+            <button
+              ontouchstart="gameMoveLeft=true"
+              ontouchend="gameMoveLeft=false"
+              onmousedown="gameMoveLeft = true"
+              onmouseup="gameMoveLeft = false"
+              class="pixel-btn-secondary py-3 text-xs"
+            >
+              ← ВЛЕВО
+            </button>
+            <button
+              ontouchstart="gameShoot()"
+              onmousedown="gameShoot()"
+              class="pixel-btn-start py-3 text-xs bg-amber-400 text-slate-950"
+            >
+              🔥 ОГОНЬ
+            </button>
+            <button
+              ontouchstart="gameMoveRight=true"
+              ontouchend="gameMoveRight=false"
+              onmousedown="gameMoveRight = true"
+              onmouseup="gameMoveRight = false"
+              class="pixel-btn-secondary py-3 text-xs"
+            >
+              ВПРАВО →
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACHIEVEMENT DETAILS MODAL -->
+    <div
+      id="achievement-modal"
+      class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/85 backdrop-blur-md hidden"
+    >
+      <div
+        class="pixel-box max-w-lg w-full p-6 bg-slate-900 relative text-white space-y-4 text-center"
+      >
+        <button
+          onclick="closeAchievementModal()"
+          class="absolute top-4 right-4 text-amber-400 hover:text-white font-bold text-sm font-['Unbounded']"
+        >
+          [X]
+        </button>
+        <div
+          class="flex items-center justify-center gap-2 border-b-2 border-amber-400 pb-3 font-['Unbounded']"
+        >
+          <i class="fas fa-medal text-amber-400 text-lg"></i>
+          <span id="ach-modal-badge" class="text-[10px] text-[#00ffcc]"
+            >КЕЙС #01</span
+          >
+        </div>
+        <h3
+          id="ach-modal-title"
+          class="text-sm sm:text-base font-extrabold text-amber-400 font-['Unbounded'] leading-snug"
+        >
+          Заголовок кейса
+        </h3>
+        <p
+          id="ach-modal-desc"
+          class="text-xs sm:text-sm text-slate-200 leading-relaxed font-['Inter']"
+        >
+          Подробное описание кейса.
+        </p>
+        <div
+          class="bg-slate-950 border-2 border-slate-700 p-3 space-y-2 text-center"
+        >
+          <div class="text-[10px] font-['Unbounded'] text-sky-400">
+            ИНСТРУМЕНТЫ И МЕТОДЫ:
+          </div>
+          <div
+            id="ach-modal-stack"
+            class="flex flex-wrap justify-center gap-2 text-[10px] font-['Unbounded']"
+          ></div>
+        </div>
+        <div class="pt-2 flex justify-center">
+          <button
+            onclick="closeAchievementModal()"
+            class="pixel-btn-start px-6 py-2.5 text-[10px] text-slate-950"
+          >
+            ОТЛИЧНО
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTACT MODAL -->
+    <div
+      id="contact-modal"
+      class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/85 backdrop-blur-md hidden"
+    >
+      <div
+        class="pixel-box max-w-lg w-full p-6 bg-slate-900 relative text-white"
+      >
+        <button
+          onclick="closeContactModal()"
+          class="absolute top-4 right-4 text-amber-400 hover:text-white font-bold text-sm font-['Unbounded']"
+        >
+          [X]
+        </button>
+
+        <div
+          class="flex items-center gap-3 border-b-2 border-amber-400 pb-3 mb-4 font-['Unbounded']"
+        >
+          <i class="fas fa-envelope text-amber-400 text-lg"></i>
+          <h3 class="text-xs sm:text-sm font-bold text-amber-400">
+            СВЯЗАТЬСЯ С ИВАНОМ
+          </h3>
+        </div>
+
+        <form
+          id="contact-form"
+          onsubmit="handleFormSubmit(event)"
+          class="space-y-4 font-['Unbounded'] text-[10px]"
+        >
+          <div>
+            <label class="block text-sky-300 mb-1.5">ВАШЕ ИМЯ:</label>
+            <input
+              type="text"
+              required
+              placeholder="Иван Иванов"
+              class="w-full bg-slate-950 border-2 border-slate-700 p-2.5 text-xs text-white focus:border-amber-400 outline-none font-sans"
+            />
+          </div>
+
+          <div>
+            <label class="block text-sky-300 mb-1.5">EMAIL / TELEGRAM:</label>
+            <input
+              type="text"
+              required
+              placeholder="@username или email@domain.com"
+              class="w-full bg-slate-950 border-2 border-slate-700 p-2.5 text-xs text-white focus:border-amber-400 outline-none font-sans"
+            />
+          </div>
+
+          <div>
+            <label class="block text-sky-300 mb-1.5">ЗАДАЧА / ПРОЕКТ:</label>
+            <textarea
+              rows="3"
+              required
+              placeholder="Опишите вашу задачу по анализу данных..."
+              class="w-full bg-slate-950 border-2 border-slate-700 p-2.5 text-xs text-white focus:border-amber-400 outline-none font-sans"
+            ></textarea>
+          </div>
+
+          <div class="pt-2 flex justify-end gap-3">
+            <button
+              type="button"
+              onclick="closeContactModal()"
+              class="pixel-btn-secondary px-4 py-2.5 text-[10px]"
+            >
+              ОТМЕНА
+            </button>
+            <button
+              type="submit"
+              class="pixel-btn-start px-6 py-2.5 text-[10px] text-slate-950"
+            >
+              ОТПРАВИТЬ
+            </button>
+          </div>
+        </form>
+
+        <div
+          id="modal-success"
+          class="hidden text-center py-6 space-y-4 font-['Unbounded']"
+        >
+          <div class="text-emerald-400 text-xs leading-relaxed">
+            ✓ СООБЩЕНИЕ УСПЕШНО ОТПРАВЛЕНО!
+          </div>
+          <p class="text-slate-300 text-[10px] font-sans leading-relaxed">
+            Спасибо за обращение! Иван свяжется с вами в ближайшее время.
+          </p>
+          <button
+            onclick="closeContactModal()"
+            class="pixel-btn-start px-6 py-2 text-[10px] text-slate-950 mt-2"
+          >
+            ЗАКРЫТЬ
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- JAVASCRIPT: Rich Pixel Art Assets & Theme Logic -->
+    <script>
+      let soundEnabled = true;
+      let isDarkTheme = true;
+      let audioCtx = null;
+
+      function initAudio() {
+        if (!audioCtx) {
+          audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+      }
+
+      function playBeepSound(freq = 440, type = "square", duration = 0.08) {
+        if (!soundEnabled) return;
+        try {
+          initAudio();
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          osc.type = type;
+          osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+          gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(
+            0.001,
+            audioCtx.currentTime + duration,
+          );
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+          osc.start();
+          osc.stop(audioCtx.currentTime + duration);
+        } catch (e) {}
+      }
+
+      function playVictorySound() {
+        if (!soundEnabled) return;
+        const notes = [523.25, 659.25, 783.99, 1046.5];
+        notes.forEach((freq, idx) => {
+          setTimeout(() => playBeepSound(freq, "square", 0.12), idx * 90);
+        });
+      }
+
+      function toggleSound() {
+        soundEnabled = !soundEnabled;
+        const icon = document.getElementById("sound-icon");
+        const text = document.getElementById("sound-text");
+        if (soundEnabled) {
+          icon.className = "fas fa-volume-up";
+          text.innerText = "ЗВУК: ВКЛ";
+          playBeepSound(600, "square", 0.1);
+        } else {
+          icon.className = "fas fa-volume-mute";
+          text.innerText = "ЗВУК: ВЫКЛ";
+        }
+      }
+
+      function toggleTheme() {
+        isDarkTheme = !isDarkTheme;
+        const body = document.body;
+        const icon = document.getElementById("theme-icon");
+        const text = document.getElementById("theme-text");
+        playBeepSound(500, "square", 0.1);
+
+        if (isDarkTheme) {
+          body.classList.remove("light-theme");
+          icon.className = "fas fa-sun";
+          text.innerText = "ДЕНЬ";
+        } else {
+          body.classList.add("light-theme");
+          icon.className = "fas fa-moon";
+          text.innerText = "НОЧЬ";
+        }
+      }
+
+      const canvas = document.getElementById("pixel-bg");
+      const ctx = canvas.getContext("2d");
+
+      let width, height;
+      let stars = [];
+      let clouds = [];
+
+      function resizeCanvas() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+        initNatureElements();
+      }
+
+      function initNatureElements() {
+        stars = [];
+        const starCount = Math.floor((width * height) / 3000);
+        for (let i = 0; i < starCount; i++) {
+          stars.push({
+            x: Math.random() * width,
+            y: Math.random() * (height * 0.7),
+            size: Math.random() > 0.8 ? 3 : 2,
+            alpha: Math.random(),
+            speed: 0.01 + Math.random() * 0.03,
+          });
+        }
+
+        clouds = [
+          { x: width * 0.1, y: 80, speed: 0.15, scale: 1.4 },
+          { x: width * 0.45, y: 60, speed: 0.1, scale: 1.8 },
+          { x: width * 0.8, y: 110, speed: 0.2, scale: 1.2 },
+        ];
+      }
+
+      function drawPixelSunMoon(x, y, radius, isDay) {
+        ctx.save();
+        ctx.fillStyle = isDay ? "#fde047" : "#fef08a";
+        ctx.fillRect(
+          x - radius - 8,
+          y - radius - 8,
+          radius * 2 + 16,
+          radius * 2 + 16,
+        );
+
+        ctx.fillStyle = isDay ? "#eab308" : "#fbbf24";
+        ctx.fillRect(x - radius, y - radius, radius * 2, radius * 2);
+
+        if (!isDay) {
+          ctx.fillStyle = "#000000";
+          ctx.fillRect(x - 12, y - 10, 8, 10);
+          ctx.fillRect(x + 6, y - 10, 8, 10);
+          ctx.fillRect(x - 14, y + 6, 8, 8);
+          ctx.fillRect(x - 8, y + 14, 20, 8);
+        }
+        ctx.restore();
+      }
+
+      function drawPixelClouds() {
+        ctx.fillStyle = isDarkTheme
+          ? "rgba(255, 255, 255, 0.25)"
+          : "rgba(255, 255, 255, 0.8)";
+        clouds.forEach((cloud) => {
+          cloud.x += cloud.speed;
+          if (cloud.x > width + 150) cloud.x = -200;
+
+          let cx = Math.round(cloud.x);
+          let cy = Math.round(cloud.y);
+          let s = cloud.scale;
+
+          ctx.fillRect(cx, cy, 50 * s, 18 * s);
+          ctx.fillRect(cx + 12 * s, cy - 12 * s, 26 * s, 12 * s);
+        });
+      }
+
+      function drawPixelNatureForest() {
+        const treeSpacing = 65;
+        const startY = height - 160;
+
+        ctx.fillStyle = isDarkTheme ? "#064e3b" : "#047857";
+        for (let x = -30; x < width + treeSpacing; x += treeSpacing * 1.3) {
+          ctx.fillRect(x + 15, startY + 40, 24, 100);
+          ctx.fillRect(x, startY - 10, 54, 55);
+          ctx.fillRect(x + 10, startY - 60, 34, 55);
+        }
+
+        ctx.fillStyle = isDarkTheme ? "#047857" : "#059669";
+        for (let x = 0; x < width + treeSpacing; x += treeSpacing * 1.2) {
+          ctx.fillRect(x + 14, startY + 45, 26, 95);
+          ctx.fillRect(x - 2, startY, 58, 52);
+          ctx.fillRect(x + 8, startY - 35, 42, 45);
+          ctx.fillRect(x + 14, startY - 65, 30, 32);
+        }
+
+        ctx.fillStyle = isDarkTheme ? "#022c22" : "#065f46";
+        ctx.fillRect(0, height - 55, width, 55);
+        ctx.fillStyle = isDarkTheme ? "#10b981" : "#34d399";
+        ctx.fillRect(0, height - 55, width, 8);
+      }
+
+      function drawBackground() {
+        const gradient = ctx.createLinearGradient(0, 0, 0, height);
+        if (isDarkTheme) {
+          gradient.addColorStop(0, "#060919");
+          gradient.addColorStop(0.5, "#0f172a");
+          gradient.addColorStop(0.85, "#0284c7");
+          gradient.addColorStop(1, "#047857");
+        } else {
+          gradient.addColorStop(0, "#38bdf8");
+          gradient.addColorStop(0.5, "#7dd3fc");
+          gradient.addColorStop(0.85, "#bae6fd");
+          gradient.addColorStop(1, "#6ee7b7");
+        }
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, 0, width, height);
+
+        if (isDarkTheme) {
+          stars.forEach((star) => {
+            star.alpha += star.speed;
+            if (star.alpha > 1 || star.alpha < 0.1) star.speed = -star.speed;
+            ctx.fillStyle = `rgba(255, 255, 255, ${Math.abs(star.alpha)})`;
+            ctx.fillRect(
+              Math.round(star.x),
+              Math.round(star.y),
+              star.size,
+              star.size,
+            );
+          });
+        }
+
+        drawPixelClouds();
+        drawPixelSunMoon(140, 95, 36, !isDarkTheme);
+        drawPixelNatureForest();
+      }
+
+      function animateBg() {
+        drawBackground();
+        requestAnimationFrame(animateBg);
+      }
+
+      window.addEventListener("resize", resizeCanvas);
+      resizeCanvas();
+      animateBg();
+
+      function openContactModal() {
+        playBeepSound(600, "square", 0.1);
+        document.getElementById("contact-modal").classList.remove("hidden");
+      }
+
+      function closeContactModal() {
+        playBeepSound(300, "square", 0.08);
+        document.getElementById("contact-modal").classList.add("hidden");
+        document.getElementById("contact-form").reset();
+        document.getElementById("contact-form").classList.remove("hidden");
+        document.getElementById("modal-success").classList.add("hidden");
+      }
+
+      function handleFormSubmit(e) {
+        e.preventDefault();
+        playVictorySound();
+        document.getElementById("contact-form").classList.add("hidden");
+        document.getElementById("modal-success").classList.remove("hidden");
+      }
+
+      const achievementsData = [
+        {
+          badge: "КЕЙС #01 // RETENTION & LTV",
+          title: "Рост клиентской базы и LTV на 42%",
+          desc: "Провел глубокий когортный анализ и разработал модель машинного обучения (CatBoost) для прогнозирования вероятности оттока клиентов за 14 дней до ухода. Интегрировал скоринг в CRM, что позволило запускать персонализированные триггерные кампании и окупить разработку за 1.5 месяца.",
+          stack: ["Python", "CatBoost", "SQL", "Airflow", "RFM-анализ"],
+        },
+        {
+          badge: "КЕЙС #02 // BI & DATA WAREHOUSE",
+          title: "Единая система сквозной BI-аналитики",
+          desc: "Объединил разрозненные источники данных (рекламные кабинеты, CRM, платежные шлюзы) в единое хранилище на базе PostgreSQL. Создал 18 интерактивных дашбордов для топ-менеджмента и отделов маркетинга с автоматическим обновлением каждые 30 минут.",
+          stack: ["PostgreSQL", "dbt", "Tableau", "ETL", "ClickHouse"],
+        },
+        {
+          badge: "КЕЙС #03 // PRODUCT ANALYTICS & A/B",
+          title: "Платформа A/B-тестов и рост конверсии",
+          desc: "Разработал методологию проведения продуктовых экспериментов, внедрил автоматический расчет размера выборки, проверку сплитования (SRM) и снижение дисперсии методом CUPED. По результатам 35+ тестов конверсия ключевой воронки выросла на 18%.",
+          stack: ["SciPy", "CUPED", "A/B Testing", "Pandas", "Amplitude"],
+        },
+      ];
+
+      function openAchievementModal(index) {
+        const item = achievementsData[index];
+        if (!item) return;
+        playVictorySound();
+        document.getElementById("ach-modal-badge").innerText = item.badge;
+        document.getElementById("ach-modal-title").innerText = item.title;
+        document.getElementById("ach-modal-desc").innerText = item.desc;
+
+        const stackContainer = document.getElementById("ach-modal-stack");
+        stackContainer.innerHTML = item.stack
+          .map(
+            (tag) =>
+              `<span class="px-2 py-1 bg-slate-900 border border-amber-400 text-amber-300">${tag}</span>`,
+          )
+          .join("");
+
+        document.getElementById("achievement-modal").classList.remove("hidden");
+      }
+
+      function closeAchievementModal() {
+        playBeepSound(300, "square", 0.08);
+        document.getElementById("achievement-modal").classList.add("hidden");
+      }
+
+      // ==========================================
+      // INTERACTIVE ACHIEVEMENTS CANVAS BACKGROUND
+      // ==========================================
+      const achSection = document.getElementById("achievements");
+      const achCanvas = document.getElementById("achievements-bg");
+      const achCtx = achCanvas.getContext("2d");
+
+      let achW = 0,
+        achH = 0;
+      let achNodes = [];
+      let achPulses = [];
+      let achFloatingIcons = [];
+      let achMouse = { x: -9999, y: -9999, active: false };
+      let gridOffset = 0;
+
+      function resizeAchCanvas() {
+        if (!achSection || !achCanvas) return;
+        const rect = achSection.getBoundingClientRect();
+        achW = achCanvas.width = rect.width;
+        achH = achCanvas.height = rect.height;
+        initAchScene();
+      }
+
+      function initAchScene() {
+        achNodes = [];
+        const nodeCount = Math.min(
+          55,
+          Math.max(24, Math.floor((achW * achH) / 24000)),
+        );
+        const colors = ["#fbbf24", "#00ffcc", "#d946ef", "#38bdf8"];
+
+        for (let i = 0; i < nodeCount; i++) {
+          achNodes.push({
+            x: Math.random() * achW,
+            y: Math.random() * achH,
+            vx: (Math.random() - 0.5) * 0.7,
+            vy: (Math.random() - 0.5) * 0.7,
+            size: Math.random() > 0.7 ? 6 : 4,
+            color: colors[i % colors.length],
+          });
+        }
+
+        achFloatingIcons = [];
+        const symbols = [
+          "+42%",
+          "SQL",
+          "AI",
+          "KPI",
+          "LTV",
+          "A/B",
+          "ROI",
+          "BI",
+          "∑",
+        ];
+        for (let i = 0; i < 14; i++) {
+          achFloatingIcons.push({
+            x: Math.random() * achW,
+            y: Math.random() * achH,
+            vy: -0.25 - Math.random() * 0.35,
+            text: symbols[i % symbols.length],
+            color: colors[i % colors.length],
+            alpha: 0.18 + Math.random() * 0.25,
+          });
+        }
+      }
+
+      // Track mouse movement inside Achievements section
+      achSection.addEventListener("mousemove", (e) => {
+        const rect = achSection.getBoundingClientRect();
+        achMouse.x = e.clientX - rect.left;
+        achMouse.y = e.clientY - rect.top;
+        achMouse.active = true;
+      });
+
+      achSection.addEventListener("mouseleave", () => {
+        achMouse.active = false;
+      });
+
+      // Click anywhere on background to trigger a retro Data Shockwave & particles
+      achSection.addEventListener("click", (e) => {
+        if (e.target.closest("button")) return;
+        const rect = achSection.getBoundingClientRect();
+        const cx = e.clientX - rect.left;
+        const cy = e.clientY - rect.top;
+        playBeepSound(740, "square", 0.09);
+
+        achPulses.push({
+          x: cx,
+          y: cy,
+          radius: 8,
+          maxRadius: 220,
+          alpha: 1,
+          color: "#00ffcc",
+        });
+
+        // Push nearby nodes outward
+        achNodes.forEach((node) => {
+          const dx = node.x - cx;
+          const dy = node.y - cy;
+          const dist = Math.hypot(dx, dy);
+          if (dist < 180 && dist > 1) {
+            node.vx += (dx / dist) * 3.2;
+            node.vy += (dy / dist) * 3.2;
+          }
+        });
+      });
+
+      function drawAchBackground() {
+        if (!achCtx) return;
+
+        // Base section fill adapting to theme
+        achCtx.fillStyle = isDarkTheme ? "#070f22" : "#e0f2fe";
+        achCtx.fillRect(0, 0, achW, achH);
+
+        // 1. Perspective / Moving Pixel Synthwave Grid
+        gridOffset = (gridOffset + 0.35) % 48;
+        achCtx.strokeStyle = isDarkTheme
+          ? "rgba(0, 255, 204, 0.07)"
+          : "rgba(2, 132, 199, 0.12)";
+        achCtx.lineWidth = 1;
+
+        for (let x = gridOffset; x < achW; x += 48) {
+          achCtx.beginPath();
+          achCtx.moveTo(Math.round(x), 0);
+          achCtx.lineTo(Math.round(x), achH);
+          achCtx.stroke();
+        }
+        for (let y = gridOffset; y < achH; y += 48) {
+          achCtx.beginPath();
+          achCtx.moveTo(0, Math.round(y));
+          achCtx.lineTo(achW, Math.round(y));
+          achCtx.stroke();
+        }
+
+        // 2. Floating Pixel Data Badges (KPI, SQL, AI, LTV...)
+        achCtx.font = 'bold 11px "Unbounded", monospace';
+        achFloatingIcons.forEach((item) => {
+          item.y += item.vy;
+          if (item.y < -20) {
+            item.y = achH + 20;
+            item.x = Math.random() * achW;
+          }
+          achCtx.save();
+          achCtx.globalAlpha = isDarkTheme ? item.alpha : item.alpha * 1.4;
+          achCtx.fillStyle = isDarkTheme ? item.color : "#0369a1";
+          achCtx.fillText(item.text, Math.round(item.x), Math.round(item.y));
+          achCtx.restore();
+        });
+
+        // 3. Interactive Constellation Nodes & Cursor Gravity
+        for (let i = 0; i < achNodes.length; i++) {
+          const n1 = achNodes[i];
+
+          // Damping velocity back to normal drift
+          n1.vx *= 0.985;
+          n1.vy *= 0.985;
+          if (Math.abs(n1.vx) < 0.25) n1.vx += (Math.random() - 0.5) * 0.08;
+          if (Math.abs(n1.vy) < 0.25) n1.vy += (Math.random() - 0.5) * 0.08;
+
+          n1.x += n1.vx;
+          n1.y += n1.vy;
+
+          if (n1.x < 0 || n1.x > achW) n1.vx *= -1;
+          if (n1.y < 0 || n1.y > achH) n1.vy *= -1;
+
+          // Connect nodes with each other
+          for (let j = i + 1; j < achNodes.length; j++) {
+            const n2 = achNodes[j];
+            const dist = Math.hypot(n1.x - n2.x, n1.y - n2.y);
+            if (dist < 130) {
+              achCtx.strokeStyle = isDarkTheme
+                ? `rgba(251, 191, 36, ${(1 - dist / 130) * 0.28})`
+                : `rgba(217, 119, 6, ${(1 - dist / 130) * 0.35})`;
+              achCtx.lineWidth = 1.5;
+              achCtx.beginPath();
+              achCtx.moveTo(Math.round(n1.x), Math.round(n1.y));
+              achCtx.lineTo(Math.round(n2.x), Math.round(n2.y));
+              achCtx.stroke();
+            }
+          }
+
+          // Connect & gently attract nodes to user's cursor
+          if (achMouse.active) {
+            const mDist = Math.hypot(n1.x - achMouse.x, n1.y - achMouse.y);
+            if (mDist < 190) {
+              achCtx.strokeStyle = isDarkTheme
+                ? `rgba(0, 255, 204, ${(1 - mDist / 190) * 0.75})`
+                : `rgba(13, 148, 136, ${(1 - mDist / 190) * 0.75})`;
+              achCtx.lineWidth = 2;
+              achCtx.beginPath();
+              achCtx.moveTo(Math.round(n1.x), Math.round(n1.y));
+              achCtx.lineTo(Math.round(achMouse.x), Math.round(achMouse.y));
+              achCtx.stroke();
+
+              // Subtle magnetic pull
+              n1.x += (achMouse.x - n1.x) * 0.008;
+              n1.y += (achMouse.y - n1.y) * 0.008;
+            }
+          }
+
+          // Draw square 8-bit pixel node
+          achCtx.fillStyle = n1.color;
+          const half = n1.size / 2;
+          achCtx.fillRect(
+            Math.round(n1.x - half),
+            Math.round(n1.y - half),
+            n1.size,
+            n1.size,
+          );
+        }
+
+        // 4. Cursor Radar Crosshair
+        if (achMouse.active) {
+          achCtx.strokeStyle = isDarkTheme
+            ? "rgba(251, 191, 36, 0.45)"
+            : "rgba(217, 119, 6, 0.5)";
+          achCtx.lineWidth = 2;
+          achCtx.strokeRect(
+            Math.round(achMouse.x - 14),
+            Math.round(achMouse.y - 14),
+            28,
+            28,
+          );
+        }
+
+        // 5. Click Shockwaves (Square Pixel Ripples)
+        for (let i = achPulses.length - 1; i >= 0; i--) {
+          const p = achPulses[i];
+          p.radius += 6;
+          p.alpha = 1 - p.radius / p.maxRadius;
+
+          if (p.alpha <= 0) {
+            achPulses.splice(i, 1);
+            continue;
+          }
+
+          achCtx.save();
+          achCtx.globalAlpha = p.alpha;
+          achCtx.strokeStyle = p.color;
+          achCtx.lineWidth = 3;
+          const r = Math.round(p.radius);
+          achCtx.strokeRect(
+            Math.round(p.x - r),
+            Math.round(p.y - r),
+            r * 2,
+            r * 2,
+          );
+          achCtx.restore();
+        }
+
+        requestAnimationFrame(drawAchBackground);
+      }
+
+      window.addEventListener("resize", resizeAchCanvas);
+      resizeAchCanvas();
+      drawAchBackground();
+
+      // ==========================================
+      // INTERACTIVE TECH STACK MATRIX CANVAS
+      // ==========================================
+      const stackSection = document.getElementById("explore-next");
+      const stackCanvas = document.getElementById("stack-bg");
+      const stackCtx = stackCanvas.getContext("2d");
+
+      let stW = 0,
+        stH = 0;
+      let stColumns = [];
+      let stBeams = [];
+      let stMouse = { x: -9999, y: -9999, active: false };
+      const codeTokens = [
+        "0",
+        "1",
+        "SELECT",
+        "JOIN",
+        "df[]",
+        "FIT()",
+        "SUM()",
+        "01",
+        "10",
+        "λ",
+        "SQL",
+        "PY",
+        "{ }",
+      ];
+
+      function resizeStackCanvas() {
+        if (!stackSection || !stackCanvas) return;
+        const rect = stackSection.getBoundingClientRect();
+        stW = stackCanvas.width = rect.width;
+        stH = stackCanvas.height = rect.height;
+        initStackStreams();
+      }
+
+      function initStackStreams() {
+        stColumns = [];
+        const colSpacing = 36;
+        const count = Math.ceil(stW / colSpacing);
+        const palette = ["#00ffcc", "#fbbf24", "#d946ef", "#38bdf8"];
+
+        for (let i = 0; i < count; i++) {
+          stColumns.push({
+            x: i * colSpacing + 14,
+            y: Math.random() * stH,
+            speed: 0.6 + Math.random() * 1.1,
+            token: codeTokens[Math.floor(Math.random() * codeTokens.length)],
+            color: palette[i % palette.length],
+            trailLength: 4 + Math.floor(Math.random() * 5),
+          });
+        }
+      }
+
+      stackSection.addEventListener("mousemove", (e) => {
+        const rect = stackSection.getBoundingClientRect();
+        stMouse.x = e.clientX - rect.left;
+        stMouse.y = e.clientY - rect.top;
+        stMouse.active = true;
+      });
+
+      stackSection.addEventListener("mouseleave", () => {
+        stMouse.active = false;
+      });
+
+      // Click on background launches horizontal laser data beams
+      stackSection.addEventListener("click", (e) => {
+        if (e.target.closest(".pixel-box")) return;
+        const rect = stackSection.getBoundingClientRect();
+        const cy = e.clientY - rect.top;
+        playBeepSound(880, "square", 0.08);
+
+        stBeams.push({
+          y: cy,
+          xLeft: e.clientX - rect.left,
+          xRight: e.clientX - rect.left,
+          alpha: 1,
+          color: Math.random() > 0.5 ? "#00ffcc" : "#fbbf24",
+        });
+      });
+
+      function drawStackBackground() {
+        if (!stackCtx) return;
+
+        // Background adapts to Day/Night mode
+        stackCtx.fillStyle = isDarkTheme ? "#030712" : "#dbeafe";
+        stackCtx.fillRect(0, 0, stW, stH);
+
+        // Subtle horizontal scanlines
+        stackCtx.fillStyle = isDarkTheme
+          ? "rgba(255, 255, 255, 0.025)"
+          : "rgba(15, 23, 42, 0.04)";
+        for (let y = 0; y < stH; y += 6) {
+          stackCtx.fillRect(0, y, stW, 2);
+        }
+
+        // Falling Pixel Code Streams
+        stackCtx.font = 'bold 10px "Unbounded", monospace';
+        stColumns.forEach((col) => {
+          let speedMult = 1;
+          let highlight = false;
+
+          if (stMouse.active) {
+            const distX = Math.abs(col.x - stMouse.x);
+            if (distX < 90) {
+              speedMult = 2.4;
+              highlight = true;
+            }
+          }
+
+          col.y += col.speed * speedMult;
+          if (col.y - col.trailLength * 18 > stH) {
+            col.y = -10;
+            col.token =
+              codeTokens[Math.floor(Math.random() * codeTokens.length)];
+          }
+
+          // Draw trail of code tokens
+          for (let t = 0; t < col.trailLength; t++) {
+            const drawY = Math.round(col.y - t * 18);
+            if (drawY < -20 || drawY > stH + 20) continue;
+
+            const fade = 1 - t / col.trailLength;
+            stackCtx.save();
+            stackCtx.globalAlpha = highlight
+              ? Math.min(1, fade * 0.95)
+              : fade * (isDarkTheme ? 0.28 : 0.4);
+            stackCtx.fillStyle = highlight
+              ? t === 0
+                ? "#ffffff"
+                : col.color
+              : isDarkTheme
+                ? col.color
+                : "#0369a1";
+            stackCtx.fillText(
+              t === 0 ? col.token : t % 2 === 0 ? "1" : "0",
+              Math.round(col.x),
+              drawY,
+            );
+            stackCtx.restore();
+          }
+        });
+
+        // Interactive Cursor Spotlight Ring
+        if (stMouse.active) {
+          stackCtx.save();
+          stackCtx.strokeStyle = isDarkTheme
+            ? "rgba(0, 255, 204, 0.35)"
+            : "rgba(2, 132, 199, 0.45)";
+          stackCtx.lineWidth = 2;
+          stackCtx.strokeRect(
+            Math.round(stMouse.x - 45),
+            Math.round(stMouse.y - 25),
+            90,
+            50,
+          );
+          stackCtx.restore();
+        }
+
+        // Click Laser Beams
+        for (let i = stBeams.length - 1; i >= 0; i--) {
+          const b = stBeams[i];
+          b.xLeft -= 18;
+          b.xRight += 18;
+          b.alpha -= 0.025;
+
+          if (b.alpha <= 0) {
+            stBeams.splice(i, 1);
+            continue;
+          }
+
+          stackCtx.save();
+          stackCtx.globalAlpha = b.alpha;
+          stackCtx.fillStyle = b.color;
+          stackCtx.fillRect(
+            Math.max(0, b.xLeft),
+            Math.round(b.y - 2),
+            Math.min(stW, b.xRight) - Math.max(0, b.xLeft),
+            4,
+          );
+          stackCtx.restore();
+        }
+
+        requestAnimationFrame(drawStackBackground);
+      }
+
+      window.addEventListener("resize", resizeStackCanvas);
+      resizeStackCanvas();
+      drawStackBackground();
+
+      // ==========================================
+      // RETRO ARCADE GAME: SQL INVASION
+      // ==========================================
+      const gameCanvas = document.getElementById("game-canvas");
+      const gameCtx = gameCanvas ? gameCanvas.getContext("2d") : null;
+
+      let gameRunning = false;
+      let gameScore = 0;
+      let gameLives = 3;
+      let playerX = 200;
+      let playerBullets = [];
+      let enemies = [];
+      let gameMoveLeft = false;
+      let gameMoveRight = false;
+      let enemySpawnTimer = 0;
+
+      function resizeGameCanvas() {
+        if (!gameCanvas) return;
+        gameCanvas.width = gameCanvas.parentElement.clientWidth;
+        gameCanvas.height = 320;
+        if (!gameRunning) {
+          playerX = gameCanvas.width / 2 - 16;
+        }
+      }
+
+      window.addEventListener("resize", resizeGameCanvas);
+      resizeGameCanvas();
+
+      function startArcadeGame() {
+        initAudio();
+        playVictorySound();
+        gameRunning = true;
+        gameScore = 0;
+        gameLives = 3;
+        playerBullets = [];
+        enemies = [];
+        enemySpawnTimer = 0;
+        playerX = gameCanvas.width / 2 - 16;
+
+        document.getElementById("game-overlay").classList.add("hidden");
+        document.getElementById("game-over-overlay").classList.add("hidden");
+        updateGameHUD();
+        requestAnimationFrame(gameLoop);
+      }
+
+      function updateGameHUD() {
+        document.getElementById("game-score").innerText = gameScore;
+        let hearts = "";
+        for (let i = 0; i < gameLives; i++) hearts += "❤️";
+        document.getElementById("game-lives").innerText = hearts;
+      }
+
+      function gameShoot() {
+        if (!gameRunning) return;
+        playBeepSound(900, "square", 0.05);
+        playerBullets.push({
+          x: playerX + 14,
+          y: gameCanvas.height - 45,
+          vy: -7,
+        });
+      }
+
+      window.addEventListener("keydown", (e) => {
+        if (!gameRunning) return;
+        if (e.key === "ArrowLeft" || e.key === "a") gameMoveLeft = true;
+        if (e.key === "ArrowRight" || e.key === "d") gameMoveRight = true;
+        if (e.key === " " || e.key === "Spacebar") {
+          e.preventDefault();
+          gameShoot();
+        }
+      });
+
+      window.addEventListener("keyup", (e) => {
+        if (e.key === "ArrowLeft" || e.key === "a") gameMoveLeft = false;
+        if (e.key === "ArrowRight" || e.key === "d") gameMoveRight = false;
+      });
+
+      function gameLoop() {
+        if (!gameRunning || !gameCtx) return;
+
+        // Clear
+        gameCtx.fillStyle = "#020617";
+        gameCtx.fillRect(0, 0, gameCanvas.width, gameCanvas.height);
+
+        // Move player (increased speed from 5 to 9 for better responsiveness)
+        if (gameMoveLeft) playerX -= 9;
+        if (gameMoveRight) playerX += 9;
+        if (playerX < 10) playerX = 10;
+        if (playerX > gameCanvas.width - 42) playerX = gameCanvas.width - 42;
+
+        // Draw Server Player
+        gameCtx.fillStyle = "#00ffcc";
+        gameCtx.fillRect(Math.round(playerX), gameCanvas.height - 35, 32, 20);
+        gameCtx.fillStyle = "#fbbf24";
+        gameCtx.fillRect(
+          Math.round(playerX + 6),
+          gameCanvas.height - 42,
+          20,
+          7,
+        );
+        // Blinking LED
+        gameCtx.fillStyle =
+          Math.floor(Date.now() / 200) % 2 === 0 ? "#ef4444" : "#22c55e";
+        gameCtx.fillRect(
+          Math.round(playerX + 12),
+          gameCanvas.height - 30,
+          8,
+          4,
+        );
+
+        // Update & Draw Bullets
+        for (let i = playerBullets.length - 1; i >= 0; i--) {
+          let b = playerBullets[i];
+          b.y += b.vy;
+          if (b.y < 0) {
+            playerBullets.splice(i, 1);
+            continue;
+          }
+          gameCtx.fillStyle = "#fbbf24";
+          gameCtx.fillRect(Math.round(b.x), Math.round(b.y), 4, 10);
+        }
+
+        // Spawn Enemies (Bugs / Bad Queries)
+        enemySpawnTimer++;
+        if (enemySpawnTimer > 45) {
+          enemySpawnTimer = 0;
+          const bugTypes = ["SELECT *", "DEADLOCK", "SRM_BUG", "NULL"];
+          enemies.push({
+            x: Math.random() * (gameCanvas.width - 40),
+            y: -20,
+            size: 28,
+            speed: 1.2 + Math.random() * 1.5,
+            text: bugTypes[Math.floor(Math.random() * bugTypes.length)],
+          });
+        }
+
+        // Update & Draw Enemies
+        for (let i = enemies.length - 1; i >= 0; i--) {
+          let en = enemies[i];
+          en.y += en.speed;
+
+          // Check collision with player
+          if (
+            en.y + 20 >= gameCanvas.height - 35 &&
+            en.x + 28 >= playerX &&
+            en.x <= playerX + 32
+          ) {
+            enemies.splice(i, 1);
+            gameLives--;
+            playBeepSound(150, "sawtooth", 0.2);
+            updateGameHUD();
+            if (gameLives <= 0) {
+              gameRunning = false;
+              document.getElementById("final-score").innerText = gameScore;
+              document
+                .getElementById("game-over-overlay")
+                .classList.remove("hidden");
+              return;
+            }
+            continue;
+          }
+
+          // Check collision with bullets
+          let hit = false;
+          for (let j = playerBullets.length - 1; j >= 0; j--) {
+            let b = playerBullets[j];
+            if (
+              b.x >= en.x - 4 &&
+              b.x <= en.x + 32 &&
+              b.y >= en.y &&
+              b.y <= en.y + 20
+            ) {
+              hit = true;
+              playerBullets.splice(j, 1);
+              break;
+            }
+          }
+
+          if (hit) {
+            enemies.splice(i, 1);
+            gameScore += 100;
+            playBeepSound(520, "square", 0.08);
+            updateGameHUD();
+            continue;
+          }
+
+          // If enemy reaches bottom
+          if (en.y > gameCanvas.height) {
+            enemies.splice(i, 1);
+            gameLives--;
+            updateGameHUD();
+            if (gameLives <= 0) {
+              gameRunning = false;
+              document.getElementById("final-score").innerText = gameScore;
+              document
+                .getElementById("game-over-overlay")
+                .classList.remove("hidden");
+              return;
+            }
+            continue;
+          }
+
+          // Draw Bug Entity
+          gameCtx.fillStyle = "#d946ef";
+          gameCtx.fillRect(Math.round(en.x), Math.round(en.y), 28, 16);
+          gameCtx.fillStyle = "#ffffff";
+          gameCtx.font = '8px "Unbounded", monospace';
+          gameCtx.fillText("🐞", Math.round(en.x + 6), Math.round(en.y + 12));
+        }
+
+        if (gameRunning) {
+          requestAnimationFrame(gameLoop);
+        }
+      }
+    </script>
+  </body>
+</html>
